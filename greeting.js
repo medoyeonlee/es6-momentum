@@ -6,17 +6,25 @@ SHOWING_CN = 'showing'
 
 function handleEditClick(){
     localStorage.removeItem(USER_LS)
+    
+    input.value='';
+ 
     greeting.classList.remove(SHOWING_CN);
-    form.classList.add(SHOWING_CN);
+    askForName();
+    //  form.classList.add(SHOWING_CN)
+
+   
     
 
 }
 function saveName(text){
   localStorage.setItem(USER_LS,text)
 }
-function handleSubmit(event){
+function handleSubmitName(event){
   event.preventDefault();
+  
   const currentValue = input.value;
+ 
   saveName(currentValue)
   paintGreeting(currentValue)
 
@@ -24,7 +32,7 @@ function handleSubmit(event){
 
 function askForName(){
   form.classList.add(SHOWING_CN)
-  form.addEventListener("submit",handleSubmit)
+  form.addEventListener("submit",handleSubmitName)
 }
 function paintGreeting(text){
   form.classList.remove(SHOWING_CN)
@@ -38,15 +46,20 @@ function paintGreeting(text){
 }
 function loadName(){
   const currentUser = localStorage.getItem(USER_LS)
-
+    console.log(`loadName->${currentUser}`)
   if(currentUser === null){
+    console.log(`loadName->true//${currentUser}`)
     askForName();
+
+    
   }else {
+    console.log(`loadName->false//${currentUser}`)
     paintGreeting(currentUser)
   }
 }
 function init(){
   loadName()
+ 
 }
 
 init();
