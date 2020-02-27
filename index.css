@@ -21,14 +21,32 @@ body{
     display:none;
   }
   
+  .done{
+    text-decoration: line-through;
+  }
   .showing{
     display:block;
   }
  
+  .js-toDoList span{
+    margin-right:10px;
+    
+  }
+  .js-toDoList li{
+    margin-bottom:15px;
+  }
+
+  .js-toDoList button{
+    border:none;
+    background-color: transparent;
+  }
 
   .js-greetings div{
     display:inline;
     margin-left: 10px;
+  }
+  .js-weather{
+ 
   }
   .bgImage{
       position: absolute;
