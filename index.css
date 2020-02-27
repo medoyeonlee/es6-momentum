@@ -13,15 +13,23 @@ body{
     color: #7f9c8c8d;
   }
   
+  .js-form {
+    margin-bottom:20px;
+  }
   .form
-  ,greetings{
+  ,.greetings{
     display:none;
   }
   
   .showing{
     display:block;
   }
+ 
 
+  .js-greetings div{
+    display:inline;
+    margin-left: 10px;
+  }
   .bgImage{
       position: absolute;
       top:0;

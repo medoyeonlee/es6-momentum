@@ -4,6 +4,13 @@ greeting = document.querySelector('.js-greetings')
 const USER_LS = 'currentUser',
 SHOWING_CN = 'showing'
 
+function handleEditClick(){
+    localStorage.removeItem(USER_LS)
+    greeting.classList.remove(SHOWING_CN);
+    form.classList.add(SHOWING_CN);
+    
+
+}
 function saveName(text){
   localStorage.setItem(USER_LS,text)
 }
@@ -23,6 +30,10 @@ function paintGreeting(text){
   form.classList.remove(SHOWING_CN)
   greeting.classList.add(SHOWING_CN)
   greeting.innerText = `Hello ${text}`
+  const editBtn = document.createElement('div');
+  editBtn.innerText='✏️';
+  greeting.appendChild(editBtn)
+  editBtn.addEventListener("click",handleEditClick);
 
 }
 function loadName(){
