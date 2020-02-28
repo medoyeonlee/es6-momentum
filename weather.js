@@ -9,13 +9,29 @@ function getWeather(lat,lng){
     .then(function(response){
         return response.json()
     }).then(function(json){
-        
-        const temperature = json.main.temp;
-        const place = json.name;
         console.log(json)
-        console.log(place)
-        console.log(temperature)
-        weather.innerText= `${temperature} @ ${place}`
+        const temperature = json.main.temp;
+        const feels_like = json.main.feels_like;
+        const temp_min = json.main.temp_min;
+        const temp_max = json.main.temp_max;
+        const humidity = json.main.humidity;
+
+        const place = json.name;
+        const span1= document.createElement('span');
+        const span2 = document.createElement('span');
+        const span3 = document.createElement('span');
+        const span4 = document.createElement('span');
+
+        span1.innerText = `${temperature} @ ${place}`;
+        span2.innerText = `feels like ${feels_like}`;
+        span3.innerText= `min ${temp_min} max ${temp_max}`;
+        span4.innerText = `Humidity ${humidity}`;
+        
+        weather.appendChild(span1);
+        weather.appendChild(span2);
+        weather.appendChild(span3);
+        weather.appendChild(span4);
+
         
 })
 }

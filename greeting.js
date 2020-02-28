@@ -46,14 +46,14 @@ function paintGreeting(text){
 }
 function loadName(){
   const currentUser = localStorage.getItem(USER_LS)
-    console.log(`loadName->${currentUser}`)
+    
   if(currentUser === null){
-    console.log(`loadName->true//${currentUser}`)
+    
     askForName();
 
     
   }else {
-    console.log(`loadName->false//${currentUser}`)
+    
     paintGreeting(currentUser)
   }
 }

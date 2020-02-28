@@ -45,8 +45,8 @@ body{
     display:inline;
     margin-left: 10px;
   }
-  .js-weather{
- 
+  .js-weather span{
+    display:block;
   }
   .bgImage{
       position: absolute;

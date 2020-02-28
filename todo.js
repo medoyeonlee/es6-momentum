@@ -23,15 +23,14 @@ function saveToDos(){
 }
 function handleToDoListClick(event){
     const span=event.target;
-    console.log(span)
+   
     toDos=[];
     if(span.classList.contains(TODOS_DONE)){ //if completed, change to uncompleted
         span.classList.remove(TODOS_DONE)
         const targetId=event.target.parentNode.id;
         let existing= localStorage[TODOS_LS];
         existing = existing?JSON.parse(existing):{};
-        console.log(existing)
-        console.log(targetId)
+       
         existing.forEach(function(eachExisting){
             
          
@@ -41,7 +40,7 @@ function handleToDoListClick(event){
                 done:parseInt(targetId)===eachExisting.id ? !eachExisting['done']:eachExisting['done']
               };
             
-              console.log(toDoObj)
+             
               toDos.push(toDoObj)
               
               saveToDos();
@@ -58,14 +57,14 @@ function handleToDoListClick(event){
         existing = existing?JSON.parse(existing):{};
       
         existing.forEach(function(eachExisting){
-            console.log(eachExisting['id'])
+            
             const toDoObj = {
                 text:eachExisting['text'],
                 id:eachExisting['id'],
                 done:parseInt(targetId)===eachExisting.id ? !eachExisting['done']:eachExisting['done']
               };
               
-            console.log(toDoObj)
+           
               toDos.push(toDoObj)
               
               saveToDos();
@@ -118,7 +117,7 @@ function handleSubmit(event){
 
 function loadToDos(){
   const loadedToDos=localStorage.getItem(TODOS_LS);
-  console.log(loadedToDos)
+  
   if(loadedToDos !== null){
       const parsedToDos = JSON.parse(loadedToDos);
       parsedToDos.forEach(function(toDo){
